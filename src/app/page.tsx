@@ -10,6 +10,16 @@ export default function Home() {
           <Link href='/mdx-page'>Go to MDX Page Example</Link>
         </li>
       </ul>
+
+      <h2>Blog</h2>
+      <ul>
+        <li>
+          <Link href='/blog/welcome'>Welcome Post</Link>
+        </li>
+        <li>
+          <Link href='/blog/about'>About Post</Link>
+        </li>
+      </ul>
     </>
   )
 }
