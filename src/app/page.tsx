@@ -1,6 +1,9 @@
+import { getAllPosts } from '@/app/lib/posts'
 import Link from 'next/link'
 
 export default function Home() {
+  const posts = getAllPosts()
+
   return (
     <>
       <h1>Next.js MDX Blog Boilerplate</h1>
@@ -13,12 +16,11 @@ export default function Home() {
 
       <h2>Blog</h2>
       <ul>
-        <li>
-          <Link href='/blog/welcome'>Welcome Post</Link>
-        </li>
-        <li>
-          <Link href='/blog/about'>About Post</Link>
-        </li>
+        {posts.map((post) => (
+          <li key={post.slug}>
+            <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+          </li>
+        ))}
       </ul>
     </>
   )

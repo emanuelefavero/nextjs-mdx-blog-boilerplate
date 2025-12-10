@@ -1,3 +1,5 @@
+import { getAllPosts } from '@/app/lib/posts'
+
 export default async function Page({
   params,
 }: {
@@ -11,7 +13,10 @@ export default async function Page({
 
 // Generate static params for known blog posts
 export function generateStaticParams() {
-  return [{ slug: 'welcome' }, { slug: 'about' }]
+  const posts = getAllPosts()
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
 }
 
 export const dynamicParams = false
